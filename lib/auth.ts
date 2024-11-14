@@ -9,10 +9,12 @@ export const authOptions: NextAuthOptions = {
     Github({
       clientId: process.env.GITHUB_CLIENT_ID as string,
       clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
+      allowDangerousEmailAccountLinking: true,
     }),
     Google({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+      allowDangerousEmailAccountLinking: true,
     }),
   ],
   adapter: PrismaAdapter(db),
@@ -29,5 +31,8 @@ export const authOptions: NextAuthOptions = {
       }
       return session;
     },
+  },
+  session: {
+    strategy: 'jwt',
   },
 };
