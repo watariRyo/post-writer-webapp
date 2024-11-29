@@ -61,7 +61,9 @@ export default function UserAuthForm() {
           {isGoogleLoading ? (
             <Icon.spinner className='mr- animate-spin' />
           ) : (
-            <Icon.google className='mr-2' />
+            <span className='mr-2'>
+              <Icon.google />
+            </span>
           )}
           Google
         </button>
